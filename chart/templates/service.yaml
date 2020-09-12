@@ -11,5 +11,11 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- range $port := .Values.application.ports }}
+    - port: {{ $port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    {{- end }}
   selector:
     {{- include "theia.selectorLabels" . | nindent 4 }}

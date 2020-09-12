@@ -1,5 +1,9 @@
 runtime: nodejs
 
+application:
+  ports:
+    - 3000
+
 persistence:
   size: 2Gi
 
