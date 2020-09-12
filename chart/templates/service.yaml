@@ -10,12 +10,12 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
-      name: http
+      name: http-theia
     {{- range $port := .Values.application.ports }}
     - port: {{ $port }}
       targetPort: http
       protocol: TCP
-      name: http
+      name: http-{{ $port }}
     {{- end }}
   selector:
     {{- include "theia.selectorLabels" . | nindent 4 }}
